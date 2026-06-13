@@ -5,9 +5,40 @@ server:
    write_timeout: 30s 
 
 database:
-   path: "./storage/db/pipeline.db"
+   path: "./database/db.go"
    max_open_conns: 10
    max_idle_conns: 5
 
 
-   
+storage:
+   captions_dir: "./storage/captions"
+   clips_dir: "./storage/clips"
+   temp_dir: "./storage/temp"
+   transcripts_dir: "./storage/transcripts"
+   uploads_dir: "./storage/uploads"
+
+
+
+ffmpeg: 
+   binary_path: "ffmpeg"
+   ffprobe_path: "ffprobe"
+
+
+worker:
+   pool_size: 2
+   queue_size: 30
+   job_timeout: 20m 
+
+logger:
+   level: "info"
+   format: "json"
+   output_path: "stdout"
+
+
+whisper:
+   script_path: "./scripts/transcribe.py"
+   python_path: "python"
+   model: "small"
+   compute_type: "int8"
+   device: "cpu"
+   language: "en"

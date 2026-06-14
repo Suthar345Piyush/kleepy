@@ -100,6 +100,9 @@ func Load(path string) (*Config, error) {
 		return nil, fmt.Errorf("config: failed to parsed yaml: %w", err)
 	}
 
+	cfg.overrideEnvs()
+	cfg.setDefualtVals()
+
 	if err := cfg.validate(); err != nil {
 		return nil, fmt.Errorf("config: validation failed: %w", err)
 	}

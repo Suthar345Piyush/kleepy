@@ -115,7 +115,7 @@ UPDATE jobs SET status = 'failed', last_error = ?, ended_at = strftime('%Y-%m-%d
 
 
 -- name: RequeueJob :one
-UPDATE jobs SET status = 'queued' WHERE id = ?, RETURNING *;
+UPDATE jobs SET status = 'queued' WHERE id = ? RETURNING *;
 
 
 -- name: ListJobsByStatus :many

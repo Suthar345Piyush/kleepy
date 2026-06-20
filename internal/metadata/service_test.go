@@ -1,2 +1,3 @@
-// tests for service 
+// tests for metadata service
 
+package metadata

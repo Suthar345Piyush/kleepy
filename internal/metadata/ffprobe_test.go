@@ -75,7 +75,7 @@ func TestParseProbeOutput_VideoWithAudio(t *testing.T) {
 	}
 
 	if !meta.HasAudio || meta.AudioCodec != "aac" {
-		t.Errorf("expected HasAudio=true AudioCodec=aac, got %q", meta.HasAudio, meta.AudioCodec)
+		t.Errorf("expected HasAudio=true AudioCodec=aac, got %q", meta.AudioCodec)
 	}
 
 }

@@ -111,7 +111,7 @@ func (p *Probe) Extract(ctx context.Context, filePath string) (*VideoMetadata, e
 	meta, err := parseProbeOutput(out)
 
 	if err != nil {
-		return nil, fmt.Errorf("ffprobe: %w (file %q)", filePath, err)
+		return nil, fmt.Errorf("ffprobe: %w (file %q)", err, filePath)
 	}
 
 	return meta, nil

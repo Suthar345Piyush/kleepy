@@ -13,7 +13,7 @@ type Segments struct {
 	StartTime float64
 	EndTime   float64
 	Duration  float64 // end time  - start time
-	Label     string  // readable format - clip_0_00:00-00:30
+	Label     string  // readable format - clip_0_00:00:00-00:00:30
 }
 
 type Strategy string
@@ -46,7 +46,7 @@ func (op *Options) validate() error {
 	}
 
 	if op.MinLength > op.ClipLength {
-		return fmt.Errorf("timeline: min length must not exceed the clip length, got %.3f", op.MinLength, op.ClipLength)
+		return fmt.Errorf("timeline: min length must not exceed the clip length, got %.3f", op.MinLength)
 	}
 
 	if op.Overlap < 0 {
@@ -54,7 +54,7 @@ func (op *Options) validate() error {
 	}
 
 	if op.Overlap >= op.ClipLength {
-		return fmt.Errorf("timeline: overlap must not be exceed cliplengt", op.Overlap, op.ClipLength)
+		return fmt.Errorf("timeline: overlap must not be exceed cliplength, got %.3f", op.Overlap)
 	}
 
 	if op.MinLength == 0 {

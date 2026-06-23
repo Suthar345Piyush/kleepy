@@ -37,7 +37,7 @@ func (s *Service) ExtractAndStore(ctx context.Context, videoID string) (database
 	meta, err := s.probe.Extract(ctx, video.OriginalPath)
 	if err != nil {
 
-		// row doesn't stuck on 'pending' status, on failure case, will fallback to 'error' status
+		// row doesn't stuck on 'pending' status, in case of failure, fallback to 'error' status
 		// updateVideoStatus
 
 		if _, updateErr := s.queries.UpdateVideoStatus(ctx, database.UpdateVideoStatusParams{

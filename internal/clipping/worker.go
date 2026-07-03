@@ -127,7 +127,7 @@ func (w *Worker) goProc(ctx context.Context) {
 		log.Error("clip processing failed", slog.String("clip_id", clipID), slog.String("error", err.Error()))
 	}
 
-	// if the error channel is full, we will log the error instead of deadlocking here - non blocking send
+	//Non Blocking Channel Operation - if the error channel is full, we will log the error instead of deadlocking here
 
 	select {
 	case w.errChan <- err:
